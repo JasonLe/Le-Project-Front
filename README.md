@@ -1,24 +1,8 @@
 # demo2
-²Î¿¼£ºhttps://js.design/site/?id=ai_5khUuPyPyDQ
-## Project setup
-```
-npm install
-```
+å‚è€ƒåšå®¢
+https://www.yunyoujun.cn/
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+https://innei.in/posts
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+chatgpt
+https://maymay5.com/newchatgpt.html#
