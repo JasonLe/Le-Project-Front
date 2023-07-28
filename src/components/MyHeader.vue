@@ -1,19 +1,37 @@
 <template>
-  <div></div>
+    <el-menu class="head-menu" :default-active="$route.path" :router="true" mode="horizontal" :ellipsis="false"
+        @select="handleSelect">
+        <el-menu-item index="0">LOGO</el-menu-item>
+        <div class="flex-grow" />
+        <el-input class="input-box" style="margin-left: 30%;margin-right: 10%;margin-top: auto;margin-bottom: auto; height:40px;" v-model="input" :prefix-icon="searchIcon" placeholder="Please input" />
+        <el-menu-item index="1">п╢ндуб</el-menu-item>
+        <el-menu-item index="2" style="margin:auto;"><el-icon><User /></el-icon></el-menu-item>
+    </el-menu>
 </template>
-
+  
 <script>
+import { Search } from '@element-plus/icons-vue'
 export default {
-  name: 'MyHeader',
-  data() {
-    return {
-
+    name: 'MyHeader',
+    data() {
+        return {
+            searchIcon:Search,
+            input:""
+        }
+    },
+    methods(){
+        
     }
-  }
 }
 </script>
+  
+<style>
+.head-menu{
+    width: 100%;
+}
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
+.flex-grow {
+    flex-grow: 1;
+}
 </style>
+  

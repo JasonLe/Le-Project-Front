@@ -1,26 +1,26 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-  <MyHeader/>
+  <el-container>
+      <el-header><MyHeader></MyHeader></el-header>
+      <el-container>
+        <!-- <el-aside width="200px"><MyAside></MyAside></el-aside> -->
+        <el-main><router-view></router-view></el-main>
+      </el-container>
+    </el-container>
 </template>
 
 <script>
-import MyHeader from './components/MyHeader.vue'
+import MyHeader from "./components/MyHeader";
+import MyAside from "./components/MyAside";
 
 export default {
   name: 'App',
   components: {
-    MyHeader
+    MyHeader,
+    MyAside
   }
 }
 </script>
 
-<style>
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
+<style lang="less">
+
 </style>
