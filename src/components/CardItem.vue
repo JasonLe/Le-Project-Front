@@ -1,7 +1,8 @@
 <template>
   <el-row style="text-align: center;justify-content: center;">
     <el-col v-for="(blog, index) in blogs" :key="blog" :span="15">
-      <el-card style="margin: 30px;text-align: center;" :body-style="{ padding: '0px' }" shadow="hover" @click="toDetail(blog.blogId)">
+      <el-card style="margin: 30px;text-align: center;" :body-style="{ padding: '0px' }" shadow="hover"
+        @click="toDetail(blog.blogId)">
         <div style="padding: 14px">
           <span style="font-size: 30px;font-family: Arial, Helvetica, sans-serif;">{{ blog.title }}</span>
           <div class="pub-date">
@@ -32,9 +33,11 @@ export default {
     }
   },
   methods: {
-    toDetail(blogId) {
-      console.log(blogId)
-      this.$router.push('/detail/'+blogId)
+    toDetail(id) {
+      console.log(id)
+      this.$router.push({
+        path: 'blogDetail/blogId='+id,
+      })
     }
   }
 }

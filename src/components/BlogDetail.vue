@@ -1,6 +1,6 @@
 <template>
   <div class="blog-detail">
-    <p>blog-detail</p>
+    <p>blog-detail - {{ blogId }}</p>
   </div>
 </template>
 
@@ -9,12 +9,15 @@
 export default {
   name: 'BlogDetail',
   props: {
-    blogs: Array
+    blogId: Number
   },
   data() {
     return {
-
+      
     }
+  },
+  mounted(){
+    
   },
   methods() {
 
