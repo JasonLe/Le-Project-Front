@@ -1,26 +1,15 @@
 <template>
-    <el-row style="text-align: center;justify-content: center;">
-    <el-col
-      v-for="(o, index) in 1"
-      :key="o"
-      :span="15"
-      :offset="index > 0 ? 2 : 0"
-    >
-      <el-card style="margin: 30px;text-align: center;" :body-style="{ padding: '0px' }" shadow="hover">
+  <el-row style="text-align: center;justify-content: center;">
+    <el-col v-for="(blog, index) in blogs" :key="blog" :span="15">
+      <el-card style="margin: 30px;text-align: center;" :body-style="{ padding: '0px' }" shadow="hover" @click="toDetail(blog.blogId)">
         <div style="padding: 14px">
-          <span style="font-size: 30px;font-family: Arial, Helvetica, sans-serif;"><a href="www.baidu.com">一个标题</a></span>
+          <span style="font-size: 30px;font-family: Arial, Helvetica, sans-serif;">{{ blog.title }}</span>
           <div class="pub-date">
-              <p>2023/7/28</p>
+            <p>{{ blog.pub_date }}</p>
           </div>
           <div class="bottom">
             <div class="card-detail">
-                这里是一些详情这里是一些详情这里是一些详情这里是一些详情这里是一些详情这里是一些详情这里是一些详情
-                这里是一些详情这里是一些详情这里是一些详情这里是一些详情这里是一些详情这里是一些详情这里是一些详情
-                这里是一些详情这里是一些详情这里是一些详情这里是一些详情这里是一些详情这里是一些详情这里是一些详情
-                这里是一些详情这里是一些详情这里是一些详情这里是一些详情这里是一些详情这里是一些详情这里是一些详情
-                这里是一些详情这里是一些详情这里是一些详情这里是一些详情这里是一些详情这里是一些详情这里是一些详情
-                这里是一些详情这里是一些详情这里是一些详情这里是一些详情这里是一些详情这里是一些详情这里是一些详情
-                这里是一些详情这里是一些详情这里是一些详情这里是一些详情这里是一些详情这里是一些详情这里是一些详情
+              {{ blog.digest }}
             </div>
             <!-- <time class="time">{{ currentDate }}</time>
             <el-button text class="button">打开</el-button> -->
@@ -33,19 +22,24 @@
   
 <script>
 export default {
-    name: 'CardItem',
-    data() {
-        return {
-
-        }
-    },
-    methods() {
+  name: 'CardItem',
+  props: {
+    blogs: Array
+  },
+  data() {
+    return {
 
     }
+  },
+  methods: {
+    toDetail(blogId) {
+      console.log(blogId)
+      this.$router.push('/detail/'+blogId)
+    }
+  }
 }
 </script>
   
   <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="less">
-</style>
+<style scoped lang="less"></style>
   

@@ -1,11 +1,15 @@
 <template>
     <el-menu class="head-menu" :default-active="$route.path" :router="true" mode="horizontal" :ellipsis="false"
         @select="handleSelect">
-        <el-menu-item index="0">LOGO</el-menu-item>
+        <el-menu-item index="/">LOGO</el-menu-item>
         <div class="flex-grow" />
-        <el-input class="input-box" style="margin-left: 30%;margin-right: 10%;margin-top: auto;margin-bottom: auto; height:40px;" v-model="input" :prefix-icon="searchIcon" placeholder="Please input" />
-        <el-menu-item index="1">Ð´ÎÄÕÂ</el-menu-item>
-        <el-menu-item index="2" style="margin:auto;"><el-icon><User /></el-icon></el-menu-item>
+        <el-input class="input-box"
+            style="margin-left: 30%;margin-right: 10%;margin-top: auto;margin-bottom: auto; height:40px;" v-model="input"
+            :prefix-icon="searchIcon" placeholder="Please input" @change="inputChange" />
+        <el-menu-item index="1">å†™æ–‡ç« </el-menu-item>
+        <el-menu-item index="2" style="margin:auto;"><el-icon>
+                <User />
+            </el-icon></el-menu-item>
     </el-menu>
 </template>
   
@@ -15,18 +19,23 @@ export default {
     name: 'MyHeader',
     data() {
         return {
-            searchIcon:Search,
-            input:""
+            searchIcon: Search,
+            input: ""
         }
     },
-    methods(){
-        
+    methods: {
+        handleSelect(val) {
+            console.log(val);
+        },
+        inputChange(keyWord) {
+            console.log(keyWord);
+        }
     }
 }
 </script>
   
 <style>
-.head-menu{
+.head-menu {
     width: 100%;
 }
 
