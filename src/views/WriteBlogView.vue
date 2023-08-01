@@ -91,6 +91,7 @@ export default {
   methods: {
     submitForm(formName) {
 // 可以参考https://blog.csdn.net/lmy_loveF/article/details/125317648
+// https://ld246.com/article/1549638745630#static-methods
       var article = this.contentEditor.getValue();
 
       if (
