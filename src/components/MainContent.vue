@@ -33,7 +33,7 @@ export default {
     handleCurrentChange(val) {
       console.log(`current page: ${val}`)
       API({
-        url: "/le-user/blogs/get?pageNum=" + val,
+        url: "/le-blog/blogs/get?pageNum=" + val,
         method: 'get'
       }).then((res) => {
         if (res.status == 200) {

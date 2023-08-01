@@ -6,7 +6,7 @@
         <el-input class="input-box"
             style="margin-left: 30%;margin-right: 10%;margin-top: auto;margin-bottom: auto; height:40px;" v-model="input"
             :prefix-icon="searchIcon" placeholder="Please input" @change="inputChange" />
-        <el-menu-item index="1">写文章</el-menu-item>
+        <el-menu-item index="/writeBlog">写文章</el-menu-item>
         <el-menu-item index="2" style="margin:auto;"><el-icon>
                 <User />
             </el-icon></el-menu-item>
