@@ -90,7 +90,7 @@ export default {
   },
   methods: {
     submitForm(formName) {
-
+// 可以参考https://blog.csdn.net/lmy_loveF/article/details/125317648
       var article = this.contentEditor.getValue();
 
       if (
@@ -125,4 +125,3 @@ export default {
   }
 }
 </script>
-  
