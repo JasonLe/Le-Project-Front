@@ -38,7 +38,7 @@ export default {
       }).then((res) => {
         if (res.status == 200) {
           console.log(res)
-          this.blogs = res.data.data;
+          this.blogs = res.data.data.records;
         } else {
           alert('返回错误')
         }

@@ -90,8 +90,8 @@ export default {
   },
   methods: {
     submitForm(formName) {
-// 可以参考https://blog.csdn.net/lmy_loveF/article/details/125317648
-// https://ld246.com/article/1549638745630#static-methods
+      // 可以参考https://blog.csdn.net/lmy_loveF/article/details/125317648
+      // https://ld246.com/article/1549638745630#static-methods
       var article = this.contentEditor.getValue();
 
       if (
@@ -102,12 +102,16 @@ export default {
         alert('话题内容不可为空')
         return false
       }
-      console.log(article)
+      let title = prompt("请输入标题")
 
-      let article = Json.
-
+      if(title == null || title == ''){
+        alert("取消保存")
+        return
+      }
+      
       API.post('/le-blog/blogs/save', {
-        article: article
+        content: article,
+        title:title
       }).then((res) => {
         if (res.status == 200) {
           alert("文章保存成功")

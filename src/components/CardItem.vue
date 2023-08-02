@@ -4,13 +4,13 @@
       <el-card style="margin: 30px;text-align: center;" :body-style="{ padding: '0px' }" shadow="hover"
         @click="toDetail(blog.blogId)">
         <div style="padding: 14px">
-          <span style="font-size: 30px;font-family: Arial, Helvetica, sans-serif;">{{ blog.title }}</span>
+          <span style="font-size: 30px;font-family: Arial, Helvetica, sans-serif;">{{ blog.blogTitle }}</span>
           <div class="pub-date">
-            <p>{{ blog.pub_date }}</p>
+            <p>{{ blog.blogUpdateTime }}</p>
           </div>
           <div class="bottom">
             <div class="card-detail">
-              {{ blog.digest }}
+              {{ blog.blogContent }}
             </div>
             <!-- <time class="time">{{ currentDate }}</time>
             <el-button text class="button">打开</el-button> -->
