@@ -1,11 +1,9 @@
 <template>
   <div class="main-container">
     <ul class="infinite-list" style="overflow: auto">
-      <!-- <li v-for="i in count" :key="i" class="list-item"> -->
       <CardItem :blogs="blogs"></CardItem>
-      <!-- </li> -->
     </ul>
-    <el-pagination class="page-bar" :page-size="10" layout="prev, pager, next" :total="total"
+    <el-pagination class="page-bar" :page-size="pageSize" layout="prev, pager, next" :total="total"
       @current-change="handleCurrentChange" />
   </div>
 </template>
@@ -20,9 +18,8 @@ export default {
   },
   data() {
     return {
-      count: 10,
-      value: new Date(),
-      total: 1500,
+      pageSize: 2,
+      total: Number,
       blogs:Array
     }
   },
@@ -32,13 +29,14 @@ export default {
   methods: {
     handleCurrentChange(val) {
       console.log(`current page: ${val}`)
-      API({
-        url: "/le-blog/blogs/get?pageNum=" + val,
-        method: 'get'
+      API.post("/le-blog/blogs/get",{
+        pageNum:val,
+        pageSize:2
       }).then((res) => {
         if (res.status == 200) {
           console.log(res)
-          this.blogs = res.data.data.records;
+          this.blogs = res.data.data.data;
+          this.total = res.data.data.pageTotal;
         } else {
           alert('返回错误')
         }
