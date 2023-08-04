@@ -1,11 +1,11 @@
 <template>
-  <el-container>
-      <el-header><MyHeader></MyHeader></el-header>
-      <el-container>
-        <!-- <el-aside width="200px"><MyAside></MyAside></el-aside> -->
-        <el-main><router-view></router-view></el-main>
-      </el-container>
-    </el-container>
+  <el-container class="app">
+    <el-header class="header">
+      <MyHeader></MyHeader>
+    </el-header>
+    <!-- <el-aside width="200px"><MyAside></MyAside></el-aside> -->
+    <el-main><router-view></router-view></el-main>
+  </el-container>
 </template>
 
 <script>
@@ -22,5 +22,16 @@ export default {
 </script>
 
 <style lang="less">
-
+.app {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0e2439;
+  color: white;
+}
+.header{
+  height: 56px;
+}
 </style>
