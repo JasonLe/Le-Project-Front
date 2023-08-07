@@ -2,19 +2,19 @@
   <!-- <el-row>
     <el-col v-for="(blog, index) in blogs" :key="blog" :span="15"> -->
   <el-card class="card" shadow="hover" @click="toDetail(blog.id)">
-    <el-image v-if="blog.img_url" style="width: 100%; height: 100%; border-radius: 4px;" :src="blog.img_url" fit="cover"
+    <el-image v-if="blog.image" style="width: 100%; height: 100%; border-radius: 4px;" :src="blog.image" fit="cover"
       loading="lazy">
     </el-image>
 
     <div style="font-size: 30px;font-family: Arial, Helvetica, sans-serif;">{{ blog.title }}</div>
-    <div class="pub-date">
+    <!-- <div class="pub-date">
       <p>{{ blog.updateTime }}</p>
-    </div>
+    </div> -->
     <div class="card-detail">
       {{ blog.digest }}
     </div>
     <div class="bottom">
-      <el-button text :icon="Star">{{ blog.praise_num }}</el-button>
+      <el-button text :icon="Star">{{ blog.praise }}</el-button>
       <el-button text :icon="ChatSquare">{{ blog.comment_num }}</el-button>
     </div>
 

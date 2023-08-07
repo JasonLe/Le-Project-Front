@@ -30,6 +30,7 @@ export default {
   height: 100%;
   background-color: #0e2439;
   color: white;
+  font-family: "Source Sans Pro","Helvetica Neue",Helvetica,sans-serif;
 }
 .header{
   height: 56px;

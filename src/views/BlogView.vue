@@ -2,7 +2,7 @@
   <div class="blog-view">
     <!-- <h1 style="font-size: 40px;">这是一个标题</h1>
     <span style="font-size: large;">2023 - 1 - 3</span> -->
-    <div id="blog-content" v-html="markdownText" />
+    <div class="blog-content" v-html="markdownText" />
   </div>
 </template>
   
@@ -24,7 +24,6 @@ export default {
         let html = converter.makeHtml(detail);
         console.log(detail)
         console.log(html)
-        // document.getElementById('blog-content').innerHTML = html;
         this.markdownText = html
       } else {
         alert('返回错误')
@@ -33,15 +32,24 @@ export default {
   },
   data() {
     return {
-      markdownText:String
+      markdownText: String
     }
   },
 }
 </script>
 
 <style>
-pre{
-  background-color: black;
-  color: rgb(36, 154, 233);
+.blog-view {
+  display: grid;
+  width: 70%;
+  text-align: left;
+  margin: auto;
+
+}
+
+.blog-content {
+  color: #D1DBE6;
+  font-size: 21px;
+  line-height: 1.5em;
 }
 </style>

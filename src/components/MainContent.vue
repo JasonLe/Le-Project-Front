@@ -8,7 +8,8 @@
       </el-col>
 
       <el-col :span="12">
-        <ul style="overflow: auto;border-left: 2px dashed #1f364d;border-right: 2px dashed #1f364d;" v-for="(blog, index) in blogs2" :key="blog">
+        <ul style="overflow: auto;border-left: 2px dashed #1f364d;border-right: 2px dashed #1f364d;"
+          v-for="(blog, index) in blogs2" :key="blog">
           <CardItem :blog="blog"></CardItem>
         </ul>
       </el-col>
@@ -51,131 +52,48 @@ export default {
     this.handleCurrentChange(1)
   },
   methods: {
-    handleCurrentChange(val) {
-      console.log(`current page: ${val}`)
-      API.post("/le-blog/blogs/get", {
-        pageNum: val,
-        pageSize: 2
-      }).then((res) => {
-        if (res.status == 200) {
-          console.log(res)
-          this.blogs = res.data.data.data;
-          this.total = res.data.data.pageTotal;
-        } else {
-          alert('返回错误1')
+    async handleCurrentChange(val) {
+
+      this.blogs3 = [
+        {
+          id: 1,
+          title: "一问额驱蚊器",
+          digest: "一问额驱蚊器一问额驱蚊器一问额驱蚊器一问额驱蚊器"
+        },
+        {
+          id: 1,
+          title: "一问额驱蚊器",
+          digest: "一问额驱蚊器一问额驱蚊器一问额驱蚊器一问额驱蚊器"
+        },
+        {
+          id: 1,
+          title: "一问额驱蚊器",
+          digest: "一问额驱蚊器一问额驱蚊器一问额驱蚊器一问额驱蚊器"
         }
-      }).catch(error => {
-        // alert('返回错误2')
-        this.blogs1 = [
-          {
-            id: 1,
-            title: "一问额驱蚊器",
-            praise_num:2,
-            comment_num:3
-          },
-          {
-            id: 1,
-            title: "一问额驱蚊器",
-            praise_num:2,
-            comment_num:3
-          },
-          {
-            id: 1,
-            title: "一问额驱蚊器",
-            praise_num:2,
-            comment_num:3
-          },
-          {
-            id: 1,
-            title: "一问额驱蚊器",
-            praise_num:2,
-            comment_num:3
-          },
-          {
-            id: 1,
-            title: "一问额驱蚊器",
-            praise_num:2,
-            comment_num:3
-          },
-          {
-            id: 1,
-            title: "一问额驱蚊器",
-            praise_num:2,
-            comment_num:3
-          },
-          {
-            id: 1,
-            title: "一问额驱蚊器",
-            praise_num:2,
-            comment_num:3
-          },
-          {
-            id: 1,
-            title: "一问额驱蚊器",
-            praise_num:2,
-            comment_num:3
-          },
-          {
-            id: 1,
-            title: "一问额驱蚊器"
-          },
-          {
-            id: 1,
-            title: "一问额驱蚊器"
-          }
-        ];
+      ];
 
-        this.blogs2 = [
-          {
-            id: 1,
-            title: "一问额驱蚊器",
-            digest: "一问额驱蚊器一问额驱蚊器一问额驱蚊器一问额驱蚊器",
-            img_url:"https://i.imgur.com/87YsVbO.png"
-          },
-          {
-            id: 1,
-            title: "一问额驱蚊器",
-            digest: "一问额驱蚊器一问额驱蚊器一问额驱蚊器一问额驱蚊器",
-            img_url:"https://i.imgur.com/87YsVbO.png"
-          },
-          {
-            id: 1,
-            title: "一问额驱蚊器",
-            digest: "一问额驱蚊器一问额驱蚊器一问额驱蚊器一问额驱蚊器",
-            img_url:"https://i.imgur.com/87YsVbO.png"
-          },
-          {
-            id: 1,
-            title: "一问额驱蚊器",
-            digest: "一问额驱蚊器一问额驱蚊器一问额驱蚊器一问额驱蚊器",
-            img_url:"https://i.imgur.com/87YsVbO.png"
-          },
-          {
-            id: 1,
-            title: "一问额驱蚊器",
-            digest: "一问额驱蚊器一问额驱蚊器一问额驱蚊器一问额驱蚊器",
-            img_url:"https://i.imgur.com/87YsVbO.png"
-          }
-        ];
+      console.log(`current page: ${val}`)
 
-        this.blogs3 = [
-          {
-            id: 1,
-            title: "一问额驱蚊器",
-            digest: "一问额驱蚊器一问额驱蚊器一问额驱蚊器一问额驱蚊器"
-          },
-          {
-            id: 1,
-            title: "一问额驱蚊器",
-            digest: "一问额驱蚊器一问额驱蚊器一问额驱蚊器一问额驱蚊器"
-          },
-          {
-            id: 1,
-            title: "一问额驱蚊器",
-            digest: "一问额驱蚊器一问额驱蚊器一问额驱蚊器一问额驱蚊器"
+      for (var i = 0; i < 2; i++) {
+        await API.post("/le-blog/blogs/getByType", {
+          type: i
+        }).then((res) => {
+          if (res.status == 200) {
+            console.log(res)
+            if (i === 0) {
+              this.blogs1 = res.data.data;
+            } else if (i === 1) {
+              this.blogs2 = res.data.data;
+            } else {
+              this.blogs3 = res.data.data;
+            }
+          } else {
+            alert('返回错误1')
           }
-        ];
-      })
+        }).catch(error => {
+          alert('返回错误2')
+        })
+      }
     }
   }
 }
@@ -192,14 +110,13 @@ export default {
   justify-content: center;
 }
 
-ul{
+ul {
   margin: 0;
   padding: 0;
 }
 
-.main-container{
+.main-container {
   margin-left: 5%;
   margin-right: 5%;
 }
-
 </style> 
